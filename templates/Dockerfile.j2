@@ -18,7 +18,11 @@
 {%   set url_root = 'https://artifacts.elastic.co/downloads/elasticsearch' -%}
 {% endif -%}
 
+{% if from_image_name -%}
+FROM {{ from_image_name }}
+{% else -%}
 FROM centos:7
+{% endif -%}
 LABEL maintainer "Elastic Docker Team <docker@elastic.co>"
 
 ENV ELASTIC_CONTAINER true
